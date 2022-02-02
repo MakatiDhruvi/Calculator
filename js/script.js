@@ -131,8 +131,14 @@ $(document).ready(function () {
                         break;
                     case "=":
                         // = is used for calculation
-                        result.html(result.html().replace("π", "3.14159"));
-                        result.html(math.evaluate(result.html()));
+                        if(result.html().indexOf("/0") != -1)
+                        {
+                            alert("Cannot divide by 0");
+                        }
+                        else{
+                            result.html(result.html().replace("π", "3.14159"));
+                            result.html(math.evaluate(result.html()));
+                        }
                         break;
                     case "MS":
                         // MS is used to store memory
